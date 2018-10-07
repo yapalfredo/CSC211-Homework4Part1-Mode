@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -11,11 +12,14 @@ const int SIZE = 20;
 class MyMode
 {
 private:
-	//ARRAY VARIABLE
-	int arr[SIZE];
+	//VARIABLE DECLARATIONS
+	int arr[SIZE], mode;
 
 	//GETS CALLED TO INITIALIZE THE ELEMENTS IN THE ARRAY
 	void initArray();
+
+	//SET THE MODAL VALUE
+	void setMode(int);
 
 public:
 	//CONSTRUCTOR
@@ -24,8 +28,14 @@ public:
 	//DESTRUCTOR
 	~MyMode();
 
+	//DISPLAY THE VALUES IN THE ARRAY
+	void printArray() const;
 
-	int printArray();
+	//LOOK FOR THE MODAL VALUE IN THE ARRAY
+	const void lookForMode();
+
+	//GET THE MODAL VALUE;
+	int getMode() const;
 
 
 };
