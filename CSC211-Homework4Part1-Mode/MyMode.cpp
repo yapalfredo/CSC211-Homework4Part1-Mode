@@ -30,7 +30,6 @@ void MyMode::initArray()
 
 void MyMode::printArray() const
 {
-
 	cout << "[ ";
 	//PRINTS ALL VALUES IN THE ARRAY
 	for (int i = 0; i < SIZE; i++)
@@ -48,7 +47,6 @@ void MyMode::printArray() const
 
 const void MyMode::lookForMode()
 {
-
 	int tempArr[10] = { 0 };
 	int counter = 0;
 
@@ -56,14 +54,14 @@ const void MyMode::lookForMode()
 	{
 		for (int j = 0; j < SIZE; j++)
 		{
-			if (arr[i] == arr[j])
+			if (*(arr+i) == *(arr+j))
 			{
 				counter++;
-				if (!ifExists(tempArr, arr[i]))
-				{
-					tempArr[arr[i] - 1] = counter;
-				}
 			}			
+		}
+		if (!ifExists(tempArr, arr[i] - 1))
+		{
+			*(tempArr + (*(arr + i) - 1)) = counter;
 		}
 		counter = 0;
 	}
@@ -100,7 +98,7 @@ bool MyMode::ifExists(const int *tempArr , int val)
 {
 	bool result = false;
 
-		if ((*(tempArr+val)-1) <= 0)
+		if (*(tempArr+val) <= 0)
 		{
 			result = false;
 		}
