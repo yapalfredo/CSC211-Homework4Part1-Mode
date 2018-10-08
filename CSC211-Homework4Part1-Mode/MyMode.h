@@ -13,13 +13,10 @@ class MyMode
 {
 private:
 	//VARIABLE DECLARATIONS
-	int arr[SIZE], mode;
+	int arr[SIZE];
 
 	//GETS CALLED TO INITIALIZE THE ELEMENTS IN THE ARRAY
 	void initArray();
-
-	//SET THE MODAL VALUE
-	void setMode(int);
 
 public:
 	//CONSTRUCTOR
@@ -34,8 +31,7 @@ public:
 	//LOOK FOR THE MODAL VALUE IN THE ARRAY
 	const void lookForMode();
 
-	//GET THE MODAL VALUE;
-	int getMode() const;
-
-
+	//A FUNCTION FOR CHECKING THE TEMP ARRAY IF A VALUE
+	//HAS ALREADY BEEN COUNTED
+	bool ifExists(const int*, int);
 };

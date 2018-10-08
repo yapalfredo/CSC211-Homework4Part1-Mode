@@ -24,7 +24,7 @@ void MyMode::initArray()
 
 	for (size_t i = 0; i < SIZE; i++)
 	{
-		*(arr + i) = rand() % (0 + 11);
+		*(arr + i) = rand() % 10 + 1;
 	}
 }
 
@@ -46,55 +46,67 @@ void MyMode::printArray() const
 	cout << endl << endl;
 }
 
-void MyMode::setMode(int val)
-{
-	//SET THE MODE VALUE
-	mode = val;
-}
-
 const void MyMode::lookForMode()
 {
-	int currentCounter;
-	int previousCounter = 0;
-	
 
-	int previousMode = 0;
-	int currentMode = 0;
-
+	int tempArr[10] = { 0 };
+	int counter = 0;
 
 	for (int i = 0; i < SIZE; i++)
 	{
-		
-		if (*(arr+i) != getMode())
+		for (int j = 0; j < SIZE; j++)
 		{
-			// TEST USED FOR ARRAY
-			currentCounter = 0;
-
-			for (int j = 0; j < SIZE; j++)
+			if (arr[i] == arr[j])
 			{
-				if ((*(arr + i) == *(arr + j)) && i <= j)
+				counter++;
+				if (!ifExists(tempArr, arr[i]))
 				{
-					currentCounter++;
-					if (currentCounter > previousCounter)
-					{
-						setMode(*(arr + i));
-					}
+					tempArr[arr[i] - 1] = counter;
 				}
-
-				previousCounter = currentCounter;
-
-			}
-
-			cout << getMode() << " appeard " << currentCounter << " times" << endl;
+			}			
 		}
-			
-		
+		counter = 0;
 	}
-	
-	
+
+
+	//////////////////////////////////////////////////////////////
+	//DISPLAY THE OCCURENCE OF EACH GENERATED VALUE IN THE ARRAY
+	/*for (size_t i = 0; i < 10; i++)
+	{
+		if (*(tempArr+i) > 0)
+		{
+			cout << i + 1 << " occured " << tempArr[i];
+
+			if (*(tempArr+i) > 1)
+			{
+				cout << " times" << endl;
+			}
+			else
+			{
+				cout << " time " << endl;
+			}
+		}
+	}*/
+	//////////////////////////////////////////////////////////////
+
+
+	for (size_t i = 0; i < 10; i++)
+	{
+		cout << tempArr[i] << " ";
+	}
 }
 
-int MyMode::getMode() const
+bool MyMode::ifExists(const int *tempArr , int val)
 {
-	return mode;
+	bool result = false;
+
+		if ((*(tempArr+val)-1) <= 0)
+		{
+			result = false;
+		}
+		else
+		{
+			result = true;
+		}
+	return result;
 }
