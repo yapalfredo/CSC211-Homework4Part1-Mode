@@ -69,7 +69,7 @@ const void MyMode::lookForMode()
 
 	//////////////////////////////////////////////////////////////
 	//DISPLAY THE OCCURENCE OF EACH GENERATED VALUE IN THE ARRAY
-	/*for (size_t i = 0; i < 10; i++)
+	for (size_t i = 0; i < 10; i++)
 	{
 		if (*(tempArr+i) > 0)
 		{
@@ -84,14 +84,9 @@ const void MyMode::lookForMode()
 				cout << " time " << endl;
 			}
 		}
-	}*/
+	}
 	//////////////////////////////////////////////////////////////
 
-
-	for (size_t i = 0; i < 10; i++)
-	{
-		cout << tempArr[i] << " ";
-	}
 }
 
 bool MyMode::ifExists(const int *tempArr , int val)
