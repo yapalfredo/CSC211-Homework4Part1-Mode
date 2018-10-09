@@ -8,7 +8,6 @@ MyMode::MyMode()
 	//FUNCTION CALL TO POPULATE THE ELEMENTS
 	//IN THE ARRAY
 	initArray();
-	
 }
 
 MyMode::~MyMode()
@@ -69,6 +68,7 @@ const void MyMode::lookForMode()
 		}
 		counter = 0;
 	}
+
 	//////////////////////////////////////////////////////////////
 	//DISPLAY THE OCCURENCE OF EACH GENERATED VALUE IN THE ARRAY
 	for (int i = 0; i < RANGE; i++)
@@ -89,17 +89,49 @@ const void MyMode::lookForMode()
 	}
 	//////////////////////////////////////////////////////////////
 
-	/////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////
 	//SET MODE(S)
-	int modeTemp;
-
+	cout << endl << "The mode(s) is/are: " << endl;
+	bool greaterOrEqual;
 	for (int i = 0; i < RANGE; i++)
 	{
-		if (i < RANGE)
+		greaterOrEqual = true;
+
+		for (int j = 0; j < RANGE; j++)
 		{
-		
+			ifGreaterOrEqual(*(tempArr + i), *(tempArr + j), greaterOrEqual);
+		}
+
+		if (!greaterOrEqual)
+		{
+			*(tempArr + i) = 0;
+		}
+
+		if (*(tempArr + i) > 0)
+		{ 
+			cout << i + 1 << "    ";
 		}
 	}
+	////////////////////////////////////////////////////////////////
+}
+
+bool MyMode::ifGreaterOrEqual(const int a, const int b, bool &greaterOrEqual)
+{
+	//THIS FUNCTION WILL BE USED TO DETERMINE THE MODE(S)
+	//IT HAS 3 ARGUMENTS, BOTH INTS WILL BE COMPARED, THEN
+	//SETS THE BOOL VARIABLE TO 'MULTIPLY EQUALS' DEPENDING
+	//RESULT OF THE CONDITION. THEN IT WILL RETURN THAT BOOL
+	//VARIABLE
+	if (a >= b)
+	{
+		greaterOrEqual *= true;
+	}
+	else
+	{
+		greaterOrEqual *= false;
+	}
+
+	return greaterOrEqual;
 }
 
 bool MyMode::ifExists(const int *tempArr , int val)

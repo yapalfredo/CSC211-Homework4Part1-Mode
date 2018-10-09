@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -36,4 +35,10 @@ public:
 	//A FUNCTION FOR CHECKING THE TEMP ARRAY IF A VALUE
 	//HAS ALREADY BEEN COUNTED
 	bool ifExists(const int*, int);
+
+	//THIS FUNCTION WILL BE USED FOR COMPARING THE INDEX OF AN ELEMENT
+	//TO THE REST OF THE ELEMENT IF IT'S GREATER OR EQUAL.
+	//IF TRUE, WILL TAKE THE CURRENT BOOL VARIABLE VALUE AND MULTIPLY TO TRUE
+	//ELSE, TAKE CURRENT BOOL VARIABLE VALUE AND MULTIPLY TO FALSE
+	bool ifGreaterOrEqual(const int, const int, bool&);
 };
