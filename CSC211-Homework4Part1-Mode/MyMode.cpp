@@ -104,10 +104,10 @@ const void MyMode::lookForMode()
 
 		if (!greaterOrEqual)
 		{
-			*(tempArr + i) = 0;
+			*(tempArr + i) = 0;	//SET TO ZERO IF IT'S NOT A MODE
 		}
 
-		if (*(tempArr + i) > 0)
+		if (*(tempArr + i) > 1) //WILL ONLY DISPLAY OCCURENCE GREATER THAN 1
 		{ 
 			cout << i + 1 << "    ";
 		}
