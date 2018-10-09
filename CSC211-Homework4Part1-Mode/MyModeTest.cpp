@@ -3,11 +3,9 @@
 int main()
 {
 	MyMode newMode;
-
+	
 	newMode.printArray();
 	newMode.lookForMode();
-
-//	cout << newMode.getMode();
 
 	cout << endl << endl;
 

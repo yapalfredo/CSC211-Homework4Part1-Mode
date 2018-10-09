@@ -8,6 +8,8 @@ using namespace std;
 
 //SIZE OF THE ARRAY
 const int SIZE = 20;
+//TO BE USED FOR RANDOM NUMBERS
+const int RANGE = 10;
 
 class MyMode
 {

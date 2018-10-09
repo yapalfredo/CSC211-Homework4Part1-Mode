@@ -24,14 +24,15 @@ void MyMode::initArray()
 
 	for (size_t i = 0; i < SIZE; i++)
 	{
-		*(arr + i) = rand() % 10 + 1;
+		*(arr + i) = rand() % RANGE + 1;
 	}
 }
 
 void MyMode::printArray() const
 {
+	//THIS FUNCTION PRINTS ALL VALUES IN THE ARRAY
+	cout << "The randomly generated array of integers are: " << endl << endl;
 	cout << "[ ";
-	//PRINTS ALL VALUES IN THE ARRAY
 	for (int i = 0; i < SIZE; i++)
 	{	
 		cout << *(arr + i);
@@ -47,8 +48,11 @@ void MyMode::printArray() const
 
 const void MyMode::lookForMode()
 {
-	int tempArr[10] = { 0 };
-	int counter = 0;
+	//THIS FUNCTION WILL LOOK FOR MODE IN THE ARRAY
+
+	int tempArr[RANGE] = { 0 };	//THIS WILL SERVE AS A CONTAINER 
+								//FOR THE COUNTER
+	int counter = 0;	
 
 	for (int i = 0; i < SIZE; i++)
 	{
@@ -59,21 +63,19 @@ const void MyMode::lookForMode()
 				counter++;
 			}			
 		}
-		if (!ifExists(tempArr, arr[i] - 1))
+		if (!ifExists(tempArr, *(arr+i) - 1))
 		{
 			*(tempArr + (*(arr + i) - 1)) = counter;
 		}
 		counter = 0;
 	}
-
-
 	//////////////////////////////////////////////////////////////
 	//DISPLAY THE OCCURENCE OF EACH GENERATED VALUE IN THE ARRAY
-	for (size_t i = 0; i < 10; i++)
+	for (int i = 0; i < RANGE; i++)
 	{
 		if (*(tempArr+i) > 0)
 		{
-			cout << i + 1 << " occured " << tempArr[i];
+			cout << i + 1 << " occured " << *(tempArr + i);
 
 			if (*(tempArr+i) > 1)
 			{
@@ -87,10 +89,23 @@ const void MyMode::lookForMode()
 	}
 	//////////////////////////////////////////////////////////////
 
+	/////////////////////////////////////////////////////////////
+	//SET MODE(S)
+	int modeTemp;
+
+	for (int i = 0; i < RANGE; i++)
+	{
+		if (i < RANGE)
+		{
+		
+		}
+	}
 }
 
 bool MyMode::ifExists(const int *tempArr , int val)
 {
+	//THIS FUNCTION WILL RETURN TRUE IF THE NUMBER HAS ALREADY BEEN COUNTED
+	//OR FALSE OTHERWISE
 	bool result = false;
 
 		if (*(tempArr+val) <= 0)
